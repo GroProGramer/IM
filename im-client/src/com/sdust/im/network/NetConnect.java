@@ -3,13 +3,15 @@ package com.sdust.im.network;
 import java.io.IOException;
 import java.net.*;
 
+import com.sdust.im.util.Constanst;
+
 import android.util.Log;
 
 public class NetConnect {
 
 	private Socket mClientSocket = null;
-	private static final String SERVER_IP = "192.168.1.161";
-	private static final int SERVER_PORT = 8399;
+	//private static final String SERVER_IP = "192.168.1.161";
+	//private static final int SERVER_PORT = 8399;
 	private boolean mIsConnected = false;
 
 	public NetConnect() {
@@ -19,7 +21,7 @@ public class NetConnect {
 		try {
 			mClientSocket = new Socket();
 			mClientSocket.connect(
-					new InetSocketAddress(SERVER_IP, SERVER_PORT), 3000);
+					new InetSocketAddress(Constanst.SERVER_IP, Constanst.SERVER_PORT), 3000);
 			Log.d("Network", "服务器连接成功");
 			if (mClientSocket.isConnected()) {
 				mIsConnected = true;
